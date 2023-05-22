@@ -17,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('login');
-});
+})->name('iams.login');
 
 Route::get('/register', function () {
     return view('register');
 })->name('iams.register');
+
+Route::get('/forgot-password', function () {
+    return view('forgotpassword');
+})->name('iams.forgotpassword');
 

@@ -29,8 +29,7 @@
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                                   
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
@@ -74,28 +73,28 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                <a class="small" href="{{route('iams.forgotpassword')}}">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="{{route('iams.login')}}">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                
             </div>
         </div>
 
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="import/vendor/jquery/jquery.min.js"></script>
+    <script src="import/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="import/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="import/js/sb-admin-2.min.js"></script>
 
 </body>
 
