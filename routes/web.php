@@ -29,3 +29,10 @@ Route::get('/forgot-password', function () {
     return view('forgotpassword');
 })->name('iams.forgotpassword');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('iams.dashboard');
+
+Route::get('/table', function () {
+    return view('table');
+})->name('iams.table');
