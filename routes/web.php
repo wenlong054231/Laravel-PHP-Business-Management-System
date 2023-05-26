@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,26 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/login', function () {
-    return view('login');
-})->name('iams.login');
-
-Route::get('/register', function () {
-    return view('register');
-})->name('iams.register');
-
-Route::get('/forgot-password', function () {
-    return view('forgotpassword');
-})->name('iams.forgotpassword');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('iams.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/table', function () {
-    return view('table');
-})->name('iams.table');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
