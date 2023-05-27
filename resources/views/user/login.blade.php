@@ -61,10 +61,10 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('iams.forgotpassword')}}">Forgot Password?</a>
+                                        <a class="small" href="{{ route('user.forgotpassword')}}">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('iams.register')}}">Create an Account!</a>
+                                        <a class="small" href="{{ route('user.register')}}">Create an Account!</a>
                                     </div>
                                 </div>
                             
