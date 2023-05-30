@@ -24,13 +24,13 @@ class UserController extends Controller
         return view('user.forgotpassword');
     }
 
-    public function newUser(Request $request)
+    public function registerUser(Request $request)
     {
         
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|numeric',
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'password' => 'required|confirmed', 
@@ -38,6 +38,7 @@ class UserController extends Controller
 
         // User::create($request->all());
 
+        // dd($request ->all());
         try {
             // Insert the data into the database
             $user = new User;
@@ -56,7 +57,7 @@ class UserController extends Controller
             }
         }
 
-        return redirect()->route('verification.notice');
+        return redirect()->route('user.login')->with('message','User created.');
     
         event(new Registered($user));
 
@@ -65,6 +66,11 @@ class UserController extends Controller
         // } else {
         //     // return redirect()->route('admin.dashboard')->with('message', "user created");
         // }
+        
+    }
+
+    public function loginUser(Request $request)
+    {
         
     }
 }

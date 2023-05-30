@@ -48,9 +48,14 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <a href="index.html" class="btn btn-primary btn-user  btn-block">
                                             Login
                                         </a>
+                                        @if (session('message'))
+                                        <div class="text-success">
+                                            {{ session('message') }}
+                                        </div>
+                                    @endif
                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
