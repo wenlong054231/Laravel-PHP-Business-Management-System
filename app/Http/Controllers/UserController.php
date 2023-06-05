@@ -149,5 +149,10 @@ class UserController extends Controller
     {
         return view('staff.home');
     }
+
+    public function clientlist()
+    {
+        return view('staff.clientlist');
+    }
     
 }
