@@ -17,19 +17,23 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/login', [UserController::class, 'login'])->name('user.login');
 Route::get('/register', [UserController::class, 'register'])->name('user.register');
-Route::post('/register', [UserController::class, 'newUser'])->name('user.newUser');
+Route::post('/register', [UserController::class, 'registerUser'])->name('user.registerUser');
+Route::post('/login', [UserController::class, 'loginUser'])->name('user.loginUser');
+Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
+
+Route::post('/forgotpassword', [UserController::class, 'sendPasswordResetEmail'])->name('user.requestpasswordreset');
+Route::get('/resetpassword',[UserController::class, 'passwordResetEmail'])->name('user.passwordResetEmail');
+
+Route::get('/home',[UserController::class, 'home'])->name('staff.home');
 
 Route::get('/forgot-password', function () {
-    return view('forgotpassword');
+    return view('user.forgotpassword');
 })->name('user.forgotpassword');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('admin.dashboard');
+})->middleware('admin')->name('admin.dashboard');
 
-Route::get('/table', function () {
-    return view('table');
-})->name('iams.table');
 
 // Route::get('/email/verify', function () {
 //     return view('auth.verify-email');

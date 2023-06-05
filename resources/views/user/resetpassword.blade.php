@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="csrf-token" content="{{csrf_token()}}">
-    <title>IAMS- Register</title>
+
+    <title>IAMS - Reset Password</title>
 
     <!-- Custom fonts for this template-->
     <link href="import/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,21 +23,20 @@
 </head>
 
 <body class="bg-gradient-primary">
+            <div class="col-xl-10 col-lg-12 col-md-9 m-auto">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <form action="{{route('user.loginUser')}}" method="POST">         
+                            @csrf  
+                            @include('user.resetpassword_form')
+                        </form>
+                            
+                        
+                    </div>
+                </div>
 
-    <div class="container">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <form action="{{route('user.registerUser')}}" method="POST">         
-                    @csrf  
-                    @include('user.register_form')
-                </form>
-               
             </div>
-        </div>
-
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="import/vendor/jquery/jquery.min.js"></script>

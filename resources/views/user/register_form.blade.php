@@ -19,13 +19,13 @@
                 <div class="col-sm-6">
                     <input type="text" class="form-control form-control-user @error('last_name') is-invalid @enderror" name="last_name" value="{{old('last_name')}}" id="LastName"
                         placeholder="Last Name">
-
-                               
+   
                     @error('last_name')
                     <div class="invalid-feedback">
                        {{$message}}
                     </div>
                 @enderror
+                
                 </div>
             </div>
             <div class="form-group">
