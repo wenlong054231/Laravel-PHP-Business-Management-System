@@ -26,6 +26,8 @@ Route::get('/resetpassword',[UserController::class, 'passwordResetEmail'])->name
 
 Route::get('/home',[UserController::class, 'home'])->name('staff.home');
 Route::get('/clientlist',[UserController::class, 'clientlist'])->name('staff.client');
+Route::get('/clientadd',[UserController::class, 'clientadd'])->name('staff.clientadd');
+Route::get('/policy',[UserController::class, 'policylist'])->name('staff.policy');
 
 Route::get('/forgot-password', function () {
     return view('user.forgotpassword');

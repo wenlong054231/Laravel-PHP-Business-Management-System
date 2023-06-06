@@ -154,5 +154,15 @@ class UserController extends Controller
     {
         return view('staff.clientlist');
     }
+
+    public function clientadd()
+    {
+        return view('staff.clientadd');
+    }
+
+    public function policylist()
+    {
+        return view('staff.policy');
+    }
     
 }

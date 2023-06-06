@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Navbar;
 
 class NavbarSeeder extends Seeder
 {
@@ -14,20 +15,23 @@ class NavbarSeeder extends Seeder
     {
         $links = [
             [
-                'name' => 'Home',
-                'route' => 'home',
+                'header' =>'Client Management',
+                'name' => 'Client List',
+                'route' => 'staff.client',
                 'ordering' => 1,
             ],
             [
-                'name' => 'Products',
-                'route' => 'products.index',
+                'header' =>'Client Management',
+                'name' => 'Client Add',
+                'route' => 'staff.clientadd',
                 'ordering' => 2,
             ],
             [
-                'name' => 'About US',
-                'route' => 'about.us',
-                'ordering' => 3,
-            ]
+                'header' =>'Policy Management',
+                'name' => 'Policy List',
+                'route' => 'staff.policy',
+                'ordering' => 1,
+            ],
         ];
   
         foreach ($links as $key => $navbar) {

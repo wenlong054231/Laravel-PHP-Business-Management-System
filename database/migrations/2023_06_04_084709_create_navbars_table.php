@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('navbars', function (Blueprint $table) {
             $table->id();
+            $table->string('header');
             $table->string('name');
             $table->string('route');
             $table->integer('ordering')->default(0);
