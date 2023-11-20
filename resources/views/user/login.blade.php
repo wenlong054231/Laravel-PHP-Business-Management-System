@@ -29,9 +29,14 @@
                         <!-- Nested Row within Card Body -->
                         <form action="{{route('user.loginUser')}}" method="POST">         
                             @csrf  
-                            @include('user.login_form')
+                            @include('user.login_form') 
                         </form>
-                            
+                        @if(session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                      
                         
                     </div>
                 </div>

@@ -1,53 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>IAMS - Reset Password</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="import/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
     <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="import/css/sb-admin-2.min.css" rel="stylesheet">
-
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+    <style>
+        /* Add your custom CSS styles here for the reset password view */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .header {
+            background-color: #4285F4;
+            color: #fff;
+            padding: 20px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4285F4;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    </style>
 </head>
-
-<body class="bg-gradient-primary">
-            <div class="col-xl-10 col-lg-12 col-md-9 m-auto">
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <form action="{{route('user.loginUser')}}" method="POST">         
-                            @csrf  
-                            @include('user.resetpassword_form')
-                        </form>
-                            
-                        
-                    </div>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Reset Password</h2>
+        </div>
+        <div class="content">
+            <form action="{{ route('user.updatepassword') }}" method="POST">
+                @csrf
+                <input type="hidden" name="token" value="{{ $token }}">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" value="{{ $email ?? old('email') }}" required >
+                    
                 </div>
-
-            </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="import/vendor/jquery/jquery.min.js"></script>
-    <script src="import/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="import/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="import/js/sb-admin-2.min.js"></script>
-
+                
+                <div>
+                    <label for="password">New Password:</label>
+                    <input type="password" name="password" required>
+                    @error('password') 
+                    <div style="color:red;">
+                       {{$message}}
+                    </div>
+                    @enderror
+                </div>
+                <div>
+                    <label for="password_confirmation">Confirm Password:</label>
+                    <input type="password" name="password_confirmation" required>
+                    @error('password_confirmation')
+                    <div style="color:red;">
+                       {{$message}}
+                    </div>
+                    @enderror
+                </div>
+                <button type="submit">Reset Password</button>
+            </form>
+        </div>       
+    </div>
 </body>
-
 </html>

@@ -29,7 +29,7 @@
                         <!-- Nested Row within Card Body -->
                         <form action="{{route('user.loginUser')}}" method="POST">         
                             @csrf  
-                            @include('user.login_form')
+                            @include('email.resetpasswordmail_form')
                         </form>
                             
                         

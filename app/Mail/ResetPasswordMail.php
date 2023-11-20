@@ -16,13 +16,13 @@ class ResetPasswordMail extends Mailable
 
     public $user;
     public $token;
+    public $url;
     /**
      * Create a new message instance.
      */
-    public function __construct($user,$token)
+    public function __construct($url)
     {
-        $this->user = $user;
-        $this->token = $token;
+        $this->url = $url;
     }
 
     /**

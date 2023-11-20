@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('header');
             $table->string('name');
+            $table->string('tablename');
             $table->string('route');
             $table->integer('ordering')->default(0);
             $table->timestamps();

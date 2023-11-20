@@ -4,12 +4,21 @@
         <p class="mb-4">We get it, stuff happens. Just enter your email address below
             and we'll send you a link to reset your password!</p>
     </div>
-    <form class="user">
+    <form class="user" method="post" action="{{route('user.requestpasswordreset')}}">
         <div class="form-group">
             <input type="email" class="form-control form-control-user" name="email"
                 id="InputEmail" aria-describedby="emailHelp"
-                placeholder="Enter Email Address...">
+                placeholder="Enter Email Address..." required>
         </div>
+        @if (session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
+        @if (session('message'))
+        <div class="text-success">
+            {{ session('message') }}
+        </div>
+        @endif
+       
        <button class="btn btn-primary btn-user btn-block">
             Send Email
        </button>
